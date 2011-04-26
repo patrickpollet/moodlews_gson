@@ -1,0 +1,8 @@
+#do not commit the bin directory
+bin/
+#and my extrnal sources files
+ext/
+#do not commit MY connexion data
+Constantes.java
+#my construction scripts
+*.sh
