@@ -1,0 +1,326 @@
+/**
+ * PageWikiRecord.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+/**
+ * Modified for GSON library by pp@patrickpollet.net using GsonBeanWriter
+ */
+
+package net.patrickpollet.moodlews_gson.core;
+
+
+import net.patrickpollet.gson.GsonObject;
+
+public class PageWikiRecord  extends GsonObject {
+    private java.lang.String author;
+
+    private java.lang.String content;
+
+    private int created;
+
+    private java.lang.String error;
+
+    private int flags;
+
+    private int hits;
+
+    private int id;
+
+    private int lastmodified;
+
+    private java.lang.String meta;
+
+    private java.lang.String pagename;
+
+    private java.lang.String refs;
+
+    private int userid;
+
+    private int version;
+
+    private int wiki;
+
+
+    /**
+     * Gets the author value for this PageWikiRecord.
+     * 
+     * @return author
+     */
+    public java.lang.String getAuthor() {
+        return author;
+    }
+
+
+    /**
+     * Sets the author value for this PageWikiRecord.
+     * 
+     * @param author
+     */
+    public void setAuthor(java.lang.String author) {
+        this.author = author;
+    }
+
+
+    /**
+     * Gets the content value for this PageWikiRecord.
+     * 
+     * @return content
+     */
+    public java.lang.String getContent() {
+        return content;
+    }
+
+
+    /**
+     * Sets the content value for this PageWikiRecord.
+     * 
+     * @param content
+     */
+    public void setContent(java.lang.String content) {
+        this.content = content;
+    }
+
+
+    /**
+     * Gets the created value for this PageWikiRecord.
+     * 
+     * @return created
+     */
+    public int getCreated() {
+        return created;
+    }
+
+
+    /**
+     * Sets the created value for this PageWikiRecord.
+     * 
+     * @param created
+     */
+    public void setCreated(int created) {
+        this.created = created;
+    }
+
+
+    /**
+     * Gets the error value for this PageWikiRecord.
+     * 
+     * @return error
+     */
+    public java.lang.String getError() {
+        return error;
+    }
+
+
+    /**
+     * Sets the error value for this PageWikiRecord.
+     * 
+     * @param error
+     */
+    public void setError(java.lang.String error) {
+        this.error = error;
+    }
+
+
+    /**
+     * Gets the flags value for this PageWikiRecord.
+     * 
+     * @return flags
+     */
+    public int getFlags() {
+        return flags;
+    }
+
+
+    /**
+     * Sets the flags value for this PageWikiRecord.
+     * 
+     * @param flags
+     */
+    public void setFlags(int flags) {
+        this.flags = flags;
+    }
+
+
+    /**
+     * Gets the hits value for this PageWikiRecord.
+     * 
+     * @return hits
+     */
+    public int getHits() {
+        return hits;
+    }
+
+
+    /**
+     * Sets the hits value for this PageWikiRecord.
+     * 
+     * @param hits
+     */
+    public void setHits(int hits) {
+        this.hits = hits;
+    }
+
+
+    /**
+     * Gets the id value for this PageWikiRecord.
+     * 
+     * @return id
+     */
+    public int getId() {
+        return id;
+    }
+
+
+    /**
+     * Sets the id value for this PageWikiRecord.
+     * 
+     * @param id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    /**
+     * Gets the lastmodified value for this PageWikiRecord.
+     * 
+     * @return lastmodified
+     */
+    public int getLastmodified() {
+        return lastmodified;
+    }
+
+
+    /**
+     * Sets the lastmodified value for this PageWikiRecord.
+     * 
+     * @param lastmodified
+     */
+    public void setLastmodified(int lastmodified) {
+        this.lastmodified = lastmodified;
+    }
+
+
+    /**
+     * Gets the meta value for this PageWikiRecord.
+     * 
+     * @return meta
+     */
+    public java.lang.String getMeta() {
+        return meta;
+    }
+
+
+    /**
+     * Sets the meta value for this PageWikiRecord.
+     * 
+     * @param meta
+     */
+    public void setMeta(java.lang.String meta) {
+        this.meta = meta;
+    }
+
+
+    /**
+     * Gets the pagename value for this PageWikiRecord.
+     * 
+     * @return pagename
+     */
+    public java.lang.String getPagename() {
+        return pagename;
+    }
+
+
+    /**
+     * Sets the pagename value for this PageWikiRecord.
+     * 
+     * @param pagename
+     */
+    public void setPagename(java.lang.String pagename) {
+        this.pagename = pagename;
+    }
+
+
+    /**
+     * Gets the refs value for this PageWikiRecord.
+     * 
+     * @return refs
+     */
+    public java.lang.String getRefs() {
+        return refs;
+    }
+
+
+    /**
+     * Sets the refs value for this PageWikiRecord.
+     * 
+     * @param refs
+     */
+    public void setRefs(java.lang.String refs) {
+        this.refs = refs;
+    }
+
+
+    /**
+     * Gets the userid value for this PageWikiRecord.
+     * 
+     * @return userid
+     */
+    public int getUserid() {
+        return userid;
+    }
+
+
+    /**
+     * Sets the userid value for this PageWikiRecord.
+     * 
+     * @param userid
+     */
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
+
+    /**
+     * Gets the version value for this PageWikiRecord.
+     * 
+     * @return version
+     */
+    public int getVersion() {
+        return version;
+    }
+
+
+    /**
+     * Sets the version value for this PageWikiRecord.
+     * 
+     * @param version
+     */
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+
+    /**
+     * Gets the wiki value for this PageWikiRecord.
+     * 
+     * @return wiki
+     */
+    public int getWiki() {
+        return wiki;
+    }
+
+
+    /**
+     * Sets the wiki value for this PageWikiRecord.
+     * 
+     * @param wiki
+     */
+    public void setWiki(int wiki) {
+        this.wiki = wiki;
+    }
+
+}
