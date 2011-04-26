@@ -2,6 +2,8 @@ package net.patrickpollet.gson.wsdl;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.List;
 
 import javax.wsdl.Binding;
@@ -9,7 +11,8 @@ import javax.wsdl.BindingOperation;
 import javax.wsdl.Operation;
 import javax.wsdl.OperationType;
 
-import net.patrickpollet.ksoap2.KSoap2Utils;
+import net.patrickpollet.gson.GsonUtils;
+import net.patrickpollet.moodlews_gson.core.CohortRecord;
 
 import org.apache.axis.wsdl.symbolTable.BindingEntry;
 import org.apache.axis.wsdl.symbolTable.Parameter;
@@ -17,6 +20,8 @@ import org.apache.axis.wsdl.symbolTable.Parameters;
 import org.apache.axis.wsdl.symbolTable.SymbolTable;
 import org.apache.axis.wsdl.toJava.Emitter;
 import org.apache.axis.wsdl.toJava.JavaStubWriter;
+
+import com.google.gson.reflect.TypeToken;
 
 public class GsonStubWriter extends JavaStubWriter {
 
@@ -50,7 +55,7 @@ public class GsonStubWriter extends JavaStubWriter {
     protected void writeHeaderComments(PrintWriter pw) throws IOException {
        super.writeHeaderComments(pw);
         pw.println("/**");
-        pw.println(" * Modified for KSoap2 library by pp@patrickpollet.net using KSoap2StubWriter");
+        pw.println(" * Modified for Gsonlibrary by pp@patrickpollet.net using GsonStubWriter");
         pw.println(" */");
         pw.println();
     }    // writeHeaderComments
@@ -65,10 +70,15 @@ public class GsonStubWriter extends JavaStubWriter {
     protected void writePackage(PrintWriter pw) throws IOException {
     	super.writePackage(pw);
     	//pw.println("//"+this.className);
-    	pw.println("import java.util.List;");
-    	pw.println("import org.ksoap2.serialization.SoapObject;");
-    	pw.println("import org.ksoap2.transport.HttpTransportSE;");
-        pw.println("import net.patrickpollet.ksoap2.*;");
+    	pw.println("import java.lang.reflect.Type");
+        pw.println("import java.util.Collection");
+        		pw.println("import java.util.List");
+
+        				pw.println("import com.google.gson.reflect.TypeToken");
+
+  
+  
+        pw.println("import net.patrickpollet.gson.*;");
     	pw.println();
     	
     }
@@ -78,7 +88,7 @@ public class GsonStubWriter extends JavaStubWriter {
 	 * @return
 	 */
 	protected String getExtendsText() {
-		return "extends  KSoap2BindingStubBase";
+		return "extends  GsonBindingStubBase";
 	} // getExtendsText
 
 	/**
@@ -88,8 +98,6 @@ public class GsonStubWriter extends JavaStubWriter {
 	 */
 	protected String getImplementsText() {
 		return "";
-		// return "implements " +
-		// bEntry.getDynamicVar(JavaBindingWriter.INTERFACE_NAME) + " ";
 	} // getImplementsText
 
 	
@@ -160,12 +168,7 @@ public class GsonStubWriter extends JavaStubWriter {
 		
 		String operationName=operation.getName();
        System.out.println(operation.getName());
-/*
-		if (operation.getName().equals("login")
-				|| operation.getName().equals("logout")
-				|| operation.getName().equals("exception_handler"))
-			return;
-*/			
+			
 		if (operation.getName().equals("exception_handler"))
 			return;
 		
@@ -184,19 +187,22 @@ public class GsonStubWriter extends JavaStubWriter {
 		
 		pw.println("    final String METH_NAME = \""+operationName+"\";");
 		
-		//pw.println("    LoginReturn lr=new LoginReturn(client,sesskey);");
-		pw.println("	MySoapSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);");
+		pw.println("    MyHttpTransportSE httpTransport = this.makeHttpTransport();");
+		
+		
+	    pw.println("     try {");
+		pw.println("	MyRestSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);");
 		
 		this.emitParameters (operation,parms,pw);
-		pw.println("    HttpTransportSE httpTransport = this.makeHttpTransport();");
+		
 		
 		
 		
 
-       pw.println("     try {");
-	   pw.println("       httpTransport.call(METH_NAME, envelope);");
+ 
+	   pw.println("       String response=httpTransport.call(METH_NAME, envelope);");
 	   
-	   pw.println("     "+this.generateFetchValue(operation, parms));
+	//   pw.println("     "+this.generateFetchValue(operation, parms));
 
 		
 	   pw.println ("	  this.logInfo(METH_NAME, response);");
@@ -224,15 +230,17 @@ public class GsonStubWriter extends JavaStubWriter {
 				String javifiedName = p.getName(); //Utils.xmlNameToJava(p.getName());
 				String typeName=p.getType().getName();
 				System.out.println (javifiedName+":"+typeName);
-				if (KSoap2Utils.isPrimitiveType(typeName)|| KSoap2Utils.isStringType(typeName))
+				if (GsonUtils.isPrimitiveType(typeName)|| GsonUtils.isStringType(typeName))
 					pw.println("      envelope.addProperty(\""+javifiedName+"\","+javifiedName+");");	
-				else if (KSoap2Utils.isArrayType(typeName)) {
-					String baseType=KSoap2Utils.getBaseType(typeName);
-					pw.println("     //generate an arraytype SoapObject for input array ");
+				else if (GsonUtils.isArrayType(typeName)) {
+					String baseType=GsonUtils.getBaseType(typeName);
+					pw.println("     //TODO generate an arraytype  for input array ");
+					/**
 					pw.printf("      SoapObject _%s= new SoapObject(this.NAMESPACE,\"%sArray\");\n",javifiedName,baseType);
 					pw.printf( "     if (%s !=null)      \n" ,javifiedName);  // rev 1.8.4 some arrays of ids may be empty=null in java
 					pw.printf("         for ( Object o : %s) \n",javifiedName);
 					pw.printf("            _%s.addProperty(\"item\",o);\n",javifiedName);
+					***/
 					pw.println("     envelope.addProperty(\""+javifiedName+"\",_"+javifiedName+");");
 				}
 				
@@ -244,71 +252,50 @@ public class GsonStubWriter extends JavaStubWriter {
 
 	}
 
-	protected String generateFetchValue(BindingOperation operation,
-			Parameters parms) {
-		Parameter ret = parms.returnParam;
-		if (ret != null) {
-			String typeName=ret.getType().getName();
-			if (KSoap2Utils.isPrimitiveType(typeName))
-				return KSoap2Utils.getPrimitiveTypeFetchValue(typeName);
-			else 
-				if (KSoap2Utils.isStringType(typeName)) 
-					return "String response = (String) envelope.getResponse();";
-			else return 
-			"SoapObject resultsRequestSOAP = (SoapObject) envelope.bodyIn;\n"+
-			"      SoapObject response = (SoapObject) resultsRequestSOAP.getProperty(0);";
-			
-		} else return "// a WS method that's returns nothing. Why not ?\n String response=\"void\";\n";
-	}
 	
 	protected String generateReturnValue(BindingOperation operation,
 			Parameters parms,boolean fault) {
 		Parameter ret = parms.returnParam;
 		if (ret != null) {
 			String typeName=ret.getType().getName();
-			if (KSoap2Utils.isPrimitiveType(typeName))
-				return KSoap2Utils.getPrimitiveTypeReturnValue(typeName,fault);
-			else if (KSoap2Utils.isStringType(typeName)) {
+			if (GsonUtils.isPrimitiveType(typeName))
+				return GsonUtils.getPrimitiveTypeReturnValue(typeName,fault);
+			else if (GsonUtils.isStringType(typeName)) {
 				if (fault) return "return null;";
 				else return "return response.toString();";
 			}
-			else if (KSoap2Utils.isArrayType(typeName)) {
+			else if (GsonUtils.isArrayType(typeName)) {
 				if (fault) return "return null;";
 				else {
-					String baseType=KSoap2Utils.getBaseType(typeName);
+					String baseType=GsonUtils.getBaseType(typeName);
 
-					if (KSoap2Utils.isPrimitiveType(baseType)) {  // array of primitive type
+					if (GsonUtils.isPrimitiveType(baseType)) {  // array of primitive type
 						
-						String wrapperClass=KSoap2Utils.getWrapperClassName(baseType);
+						String wrapperClass=GsonUtils.getWrapperClassName(baseType);
 						//return "       return null;"; 
-						return "       return KSoap2Utils.get"+wrapperClass+"Array(response);";
+						return "       return GsonUtils.get"+wrapperClass+"Array(response);";
 					}
-					else if (KSoap2Utils.isStringType(baseType)) {  // array of String
-						 return "      return KSoap2Utils.getStringArray(response);";
+					else if (GsonUtils.isStringType(baseType)) {  // array of String
+						 return "      return GsonUtils.getStringArray(response);";
 						
 					}	
 
 					else {
 
 						return 
-						"List ret=this.getList(response,new "+baseType+"(this.NAMESPACE));\n"+
-						"      return ("+baseType+"[]) ret.toArray( new "+baseType+"[0]);";
+						"Type  collectionType = new TypeToken<Collection<"+baseType+">>(){}.getType();\n"+
+						 "        Collection ret=this.getList(response, collectionType);\n"+
+					     "        return ("+baseType+"[]) ret.toArray( new "+baseType+"[0]);";
+						
 					}
 				}
 			}
-			/***  enum types are now Soapeabilisable
-			else if (KSoap2Utils.isEnumType(typeName)) {
-				//return " // typeName est enum";
-				// must emit something like this calling the static factory of that class from a string 
-				//   return StatisticStateType.fromString(response.toString());
-				return " return "+typeName+ ".fromString(response.toString());";
-			}
-			****/ 
+
 			else { //object that MUST be Soapeabilisable
-				//return (ExamenRecordV2)KSoap2Utils.getObject(response, new ExamenRecordV2());
-				String baseType=KSoap2Utils.getBaseType(typeName);
+				//return (ExamenRecordV2)GsonUtils.getObject(response, new ExamenRecordV2());
+				String baseType=GsonUtils.getBaseType(typeName);
 				if (fault) return "return null;";
-				else	return "return ("+ baseType+")KSoap2Utils.getObject(response,new "+baseType+"(this.NAMESPACE));";
+				else	return "return ("+ baseType+")GsonUtils.getObject(response,new "+baseType+"());";
 			}
 		}
 		return "// a WS method that's returns nothing. Why not ?";

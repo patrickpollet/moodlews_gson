@@ -3,10 +3,11 @@
  */
 package net.patrickpollet.gson;
 
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
 import java.util.List;
 
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.transport.HttpTransportSE;
+
 
 /**
  * @author ppollet
@@ -50,26 +51,26 @@ public class GsonBindingStubBase{
 		return  new MyHttpTransportSE(URL,WS_DEBUG);
 	}
 	
-	public 	MySoapSerializationEnvelope makeEnvelope(String method_name,int client, String sesskey) {
-		return  new MySoapSerializationEnvelope(NAMESPACE, method_name, client,sesskey);
+	public 	MyRestSerializationEnvelope makeEnvelope(String method_name,int client, String sesskey) throws UnsupportedEncodingException {
+		return  new MyRestSerializationEnvelope(NAMESPACE, method_name, client,sesskey);
 	}
 	
-	public 	MySoapSerializationEnvelope makeEnvelope(String method_name) {
-		return  new MySoapSerializationEnvelope(NAMESPACE, method_name, 0,"");
+	public 	MyRestSerializationEnvelope makeEnvelope(String method_name) throws UnsupportedEncodingException {
+		return  new MyRestSerializationEnvelope(NAMESPACE, method_name, 0,"");
 	}
 	
-	public Gsoneabilisable getObject (SoapObject response,Gsoneabilisable theClass) {
+	
+	public GsonObject getObject (String response,GsonObject theClass) {
 		return GsonUtils.getObject(response, theClass);
 	}
 	
-	public List<Gsoneabilisable> getList(SoapObject response,Gsoneabilisable theClass) {
-		return GsonUtils.getList(response, theClass);
+	public List<GsonObject>  getList(String response,Type collectionType) {
+		return GsonUtils.getList(response, collectionType);
 	}
 	
-	public Gsoneabilisable[] getArray(SoapObject response,Gsoneabilisable theClass) {
-		return GsonUtils.getArray(response, theClass);
+	public GsonObject[] getArray(String response,Type type) {
+		return GsonUtils.getArray(response, type);
 	}
-
 
 
 	/**
@@ -78,9 +79,11 @@ public class GsonBindingStubBase{
 	 * @param httpTransport
 	 * @param e
 	 */
-	protected void logError(HttpTransportSE httpTransport, Exception e) {
+	
+	protected void logError(MyHttpTransportSE httpTransport, Exception e) {
 		// give a null pointer exception if debug is off in transport
 		if (WS_DEBUG) {
+			/**
 			if (httpTransport.requestDump !=null) {		
 				System.out.println( httpTransport.requestDump.toString());
 				System.out.println(  "lng="
@@ -91,6 +94,7 @@ public class GsonBindingStubBase{
 				System.out.println( "lng="
 					+ (httpTransport.responseDump.toString().length()));
 			}
+			**/
 		}
 		e.printStackTrace();
 

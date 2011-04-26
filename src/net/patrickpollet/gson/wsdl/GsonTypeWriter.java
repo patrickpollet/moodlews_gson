@@ -66,7 +66,7 @@ public class GsonTypeWriter extends JavaTypeWriter{
     protected JavaWriter getBeanHelperWriter(
             Emitter emitter, TypeEntry type, Vector elements, TypeEntry base,
             Vector attributes, boolean forException) {
-        return new KSoap2BeanHelperWriter(
+        return new GsonBeanHelperWriter(
                 emitter, type, elements, base, attributes,
                 forException  ?  JavaBeanFaultWriter.RESERVED_PROPERTY_NAMES
                               :  Collections.EMPTY_SET);
