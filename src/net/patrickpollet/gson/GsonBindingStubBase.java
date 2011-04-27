@@ -83,7 +83,7 @@ public class GsonBindingStubBase{
 	protected void logError(MyHttpTransportSE httpTransport, Exception e) {
 		// give a null pointer exception if debug is off in transport
 		if (WS_DEBUG) {
-			/**
+			
 			if (httpTransport.requestDump !=null) {		
 				System.out.println( httpTransport.requestDump.toString());
 				System.out.println(  "lng="
@@ -94,7 +94,7 @@ public class GsonBindingStubBase{
 				System.out.println( "lng="
 					+ (httpTransport.responseDump.toString().length()));
 			}
-			**/
+			
 		}
 		e.printStackTrace();
 

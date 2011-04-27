@@ -11,10 +11,10 @@
 
 package net.patrickpollet.moodlews_gson.core;
 
-import java.lang.reflect.Type
-import java.util.Collection
-import java.util.List
-import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.List;
+import com.google.gson.reflect.TypeToken;
 import net.patrickpollet.gson.*;
 
 public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
@@ -545,7 +545,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
       envelope.addProperty("cohortid",cohortid);
       envelope.addProperty("cohortidfield",cohortidfield);
@@ -567,7 +567,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
       envelope.addProperty("cohortid",cohortid);
       envelope.addProperty("cohortidfield",cohortidfield);
@@ -614,7 +614,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("limit",limit);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.intValue();
+      return Integer.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return 0;
@@ -632,7 +632,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("roleid",roleid);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.intValue();
+      return Integer.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return 0;
@@ -741,7 +741,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("assignments",_assignments);
+     envelope.addProperty("assignments",assignments);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<AssignmentRecord>>(){}.getType();
@@ -760,7 +760,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("categories",_categories);
+     envelope.addProperty("categories",categories);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<CategoryRecord>>(){}.getType();
@@ -779,7 +779,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courses",_courses);
+     envelope.addProperty("courses",courses);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<CourseRecord>>(){}.getType();
@@ -798,7 +798,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("databases",_databases);
+     envelope.addProperty("databases",databases);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<DatabaseRecord>>(){}.getType();
@@ -817,7 +817,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("forums",_forums);
+     envelope.addProperty("forums",forums);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<ForumRecord>>(){}.getType();
@@ -836,7 +836,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("groupings",_groupings);
+     envelope.addProperty("groupings",groupings);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<GroupingRecord>>(){}.getType();
@@ -855,7 +855,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("groups",_groups);
+     envelope.addProperty("groups",groups);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<GroupRecord>>(){}.getType();
@@ -874,7 +874,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("labels",_labels);
+     envelope.addProperty("labels",labels);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<LabelRecord>>(){}.getType();
@@ -893,7 +893,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("pageswiki",_pageswiki);
+     envelope.addProperty("pageswiki",pageswiki);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<PageWikiRecord>>(){}.getType();
@@ -912,7 +912,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("sections",_sections);
+     envelope.addProperty("sections",sections);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<SectionRecord>>(){}.getType();
@@ -931,7 +931,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("users",_users);
+     envelope.addProperty("users",users);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<UserRecord>>(){}.getType();
@@ -950,7 +950,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("wikis",_wikis);
+     envelope.addProperty("wikis",wikis);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<WikiRecord>>(){}.getType();
@@ -971,7 +971,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("courseid",courseid);
       envelope.addProperty("courseidfield",courseidfield);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -1242,7 +1242,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("sesskey",sesskey);
       envelope.addProperty("assignmentid",assignmentid);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
       envelope.addProperty("timemodified",timemodified);
       envelope.addProperty("zipfiles",zipfiles);
@@ -1479,7 +1479,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courseids",_courseids);
+     envelope.addProperty("courseids",courseids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -1609,7 +1609,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("userid",userid);
       envelope.addProperty("useridfield",useridfield);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courseids",_courseids);
+     envelope.addProperty("courseids",courseids);
       envelope.addProperty("courseidfield",courseidfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -1779,7 +1779,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courseids",_courseids);
+     envelope.addProperty("courseids",courseids);
       envelope.addProperty("idfield",idfield);
       envelope.addProperty("type",type);
        String response=httpTransport.call(METH_NAME, envelope);
@@ -1895,7 +1895,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("activityid",activityid);
       envelope.addProperty("activitytype",activitytype);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -2050,7 +2050,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("sesskey",sesskey);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.intValue();
+      return Integer.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return 0;
@@ -2106,7 +2106,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("courseidfield",courseidfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.intValue();
+      return Integer.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return 0;
@@ -2153,7 +2153,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courseids",_courseids);
+     envelope.addProperty("courseids",courseids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -2228,7 +2228,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("courseids",_courseids);
+     envelope.addProperty("courseids",courseids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -2391,7 +2391,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -2456,7 +2456,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("roleid",roleid);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.booleanValue();
+      return Boolean.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return false;
@@ -2486,7 +2486,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("sesskey",sesskey);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
-      return response.booleanValue();
+      return Boolean.valueOf(response);
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return false;
@@ -2644,7 +2644,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
       envelope.addProperty("cohortid",cohortid);
       envelope.addProperty("cohortidfield",cohortidfield);
@@ -2666,7 +2666,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
       envelope.addProperty("cohortid",cohortid);
       envelope.addProperty("cohortidfield",cohortidfield);
@@ -2690,7 +2690,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("userid",userid);
       envelope.addProperty("useridfield",useridfield);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("values",_values);
+     envelope.addProperty("values",values);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<ProfileitemRecord>>(){}.getType();
@@ -2711,7 +2711,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("courseid",courseid);
       envelope.addProperty("courseidfield",courseidfield);
      //TODO generate an arraytype  for input array 
-     envelope.addProperty("userids",_userids);
+     envelope.addProperty("userids",userids);
       envelope.addProperty("idfield",idfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);

@@ -12,6 +12,8 @@ public class MyHttpTransportSE  {
 
 	private String url;
 	private boolean debug;
+	public String requestDump="";
+	public String responseDump="";
 
 	public MyHttpTransportSE(String url, boolean debug) {
 		this.url=url; 
@@ -28,7 +30,7 @@ public class MyHttpTransportSE  {
           writer.write(envelope.toString());
           writer.flush();
           writer.close();
-          
+          this.requestDump=envelope.toString();
           // Used for testing
           BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()));
           StringBuilder res=new StringBuilder();
@@ -43,8 +45,8 @@ public class MyHttpTransportSE  {
           
           
           connection.disconnect();
-		
-		return res.toString(); 
+          this.responseDump=res.toString();
+          return this.responseDump;
 		
 	}
 	

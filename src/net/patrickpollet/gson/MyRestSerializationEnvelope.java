@@ -1,6 +1,7 @@
 package net.patrickpollet.gson; 
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.URLEncoder;
 
 import net.patrickpollet.moodlews_gson.core.LoginReturn;
@@ -15,7 +16,7 @@ import net.patrickpollet.moodlews_gson.core.LoginReturn;
  */
 public class MyRestSerializationEnvelope {
 
-	private StringBuilder request;
+	private StringBuilder request=new StringBuilder();
 	
 	private String nameSpace="json";
 	
@@ -56,7 +57,7 @@ public class MyRestSerializationEnvelope {
 		
 		this.nameSpace=nameSpace;
 		this.request.append(URLEncoder.encode("wsfunction", this.encoding)).append("=").append(URLEncoder.encode(method_name,this.encoding));
-		
+		this.addProperty("wsformatout", nameSpace);
 		if (client !=0) {
 			this.addProperty("client", client);
 			this.addProperty("sesskey", sesskey);
@@ -71,8 +72,22 @@ public class MyRestSerializationEnvelope {
 	 * @param value
 	 */
 	public void addProperty(String name, Object value) throws UnsupportedEncodingException {
-		//this.request.addProperty(name, value);
-	}
+		if (value !=null) {
+
+			if (value.getClass().isArray()) {
+				int length = Array.getLength(value);
+				for (int i = 0; i < length; ++i) {
+				      Object child = Array.get(value, i);
+				      this.addProperty(name+"["+i+"]", child);
+				}      
+			}
+			else {
+				//todo object 
+				this.request.append("&");
+				this.request.append(URLEncoder.encode(name, this.encoding)).append("=").append(URLEncoder.encode(value.toString(),this.encoding));
+			}
+		}
+	}	
 	
 	public String toString() {
 		this.request.trimToSize();

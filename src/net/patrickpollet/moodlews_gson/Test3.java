@@ -25,7 +25,7 @@ public class Test3 {
 	
 	//DO NOT CHANGE we are talking to Ws using the NEW simplified WSDL
 	private static final String MOODLE_SERVICE=Constantes.MOODLE_URL+"wspp/service_pp2.php";
-	private static final String MOODLE_NAMESPACE=Constantes.MOODLE_URL+"wspp/wsdl2/";
+	private static final String MOODLE_NAMESPACE="json"; //Constantes.MOODLE_URL+"wspp/wsdl2/";
 
 
 
@@ -35,7 +35,7 @@ public class Test3 {
 
 	public Test3() throws Exception {
 
-		Mdl_restserverBindingStub moodle = new Mdl_restserverBindingStub(MOODLE_SERVICE,MOODLE_NAMESPACE, Constantes.WS_DEBUG);
+		Mdl_restserverBindingStub moodle = new Mdl_restserverBindingStub(MOODLE_SERVICE,MOODLE_NAMESPACE, true); //Constantes.WS_DEBUG);
 		
 			String[] ret=moodle.get_string_array();
 			System.out.println(Arrays.toString(ret));

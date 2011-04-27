@@ -28,7 +28,7 @@ public class GsonUtils {
 
 
 	
-	
+
 	
 
 
@@ -38,6 +38,7 @@ public class GsonUtils {
 	private static String[] PRIMITIVE_WRAPPER_TYPES = { "Boolean", "Integer", "Long",
 		"Short", "Byte", "Float", "Double" };
 
+	/*
 	private static String[] PRIMITIVE_FETCH_VALUES = {
 			"Boolean response = (Boolean) envelope.getResponse();",
 			"Integer response = (Integer) envelope.getResponse();",
@@ -46,12 +47,16 @@ public class GsonUtils {
 			"Byte response = (Byte) envelope.getResponse();",
 			"Float response = (Float) envelope.getResponse();",
 			"Double response = (Double) envelope.getResponse();" };
-
+    */
 	private static String[] PRIMITIVE_RETURN_VALUES = {
-			"return response.booleanValue();", "return response.intValue();",
-			"return response.longValue();", "return response.shortValue();",
-			"return response.byteValue();", "return response.floatValue();",
-			"return response.doubleValue();" };
+			//"return Integer.valueOf(response)==1;",
+			"return Boolean.valueOf(response);",
+			"return Integer.valueOf(response);",
+			"return Long.valueOf(response);",
+			"return Short.valueOf(response);",
+			"return Byte.valueOf(response);", 
+			"return Float.valueOf(response);",
+			"return Double.valueOf(response);" };
 
 	private static String[] PRIMITIVE_RETURN_FAULT_VALUES = { "return false;",
 			"return 0;", "return 0;", "return 0;", "return 0;", "return 0;",
@@ -94,6 +99,7 @@ public class GsonUtils {
 	}
 	
 
+	/*
 	public static String getPrimitiveTypeFetchValue(String typeName) {
 		int i = findPrimitiveTypeIndex(typeName);
 		if (i != -1)
@@ -101,6 +107,7 @@ public class GsonUtils {
 		else
 			return "";
 	}
+	*/
 
 	public static String getPrimitiveTypeReturnValue(String typeName,
 			boolean fault) {
@@ -128,6 +135,26 @@ public class GsonUtils {
 		
 		Gson gson=new Gson();
 		return gson.fromJson(response, type);
+	}
+
+	public static boolean[] getBooleanArray(String response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static String[] getStringArray(String response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static int[] getIntegerArray(String response) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static float[] getFloatArray(String response) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

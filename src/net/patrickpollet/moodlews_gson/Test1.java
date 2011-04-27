@@ -24,7 +24,7 @@ public class Test1 {
 	
 	//DO NOT CHANGE we are talking to Ws using the NEW simplified WSDL
 	private static final String MOODLE_SERVICE=Constantes.MOODLE_URL+"wspp/service_pp2.php";
-	private static final String MOODLE_NAMESPACE=Constantes.MOODLE_URL+"wspp/wsdl2/";
+	private static final String MOODLE_NAMESPACE="json"; //Constantes.MOODLE_URL+"wspp/wsdl2/";
 
 
 
@@ -34,7 +34,7 @@ public class Test1 {
 
 	public Test1() throws Exception {
 
-		Mdl_restserverBindingStub moodle = new Mdl_restserverBindingStub(MOODLE_SERVICE,MOODLE_NAMESPACE, Constantes.WS_DEBUG);
+		Mdl_restserverBindingStub moodle = new Mdl_restserverBindingStub(MOODLE_SERVICE,MOODLE_NAMESPACE,true); // Constantes.WS_DEBUG);
 		LoginReturn lr = moodle.login(Constantes.LOGIN, Constantes.PWD);
 
 		// moodle.get_my_id(client, sesskey);
@@ -90,10 +90,10 @@ public class Test1 {
 				for (int i=0; i<thems.length;i++)
 					System.out.println(i+" "+thems[i]);
 
-			 
+		 
 				// create a new user 
 			
-				UserDatum newU=new UserDatum(moodle.getNAMESPACE());
+				UserDatum newU=new UserDatum();
 				newU.setUsername("inconnu005");
 				newU.setFirstname("inconnu");
 				newU.setLastname("inconnu");
@@ -104,10 +104,10 @@ public class Test1 {
 				
 				UserRecord[] res=moodle.add_user(lr.getClient(),lr.getSessionkey(),newU);
 				System.out.println (Arrays.toString(res));
-				
+			/*	
 				UserDatum[] users2= new UserDatum[10];
 				for (int i=0; i<10; i++) {
-					users2[i]=new UserDatum(moodle.getNAMESPACE());
+					users2[i]=new UserDatum();
 					users2[i].setId(i);
 					users2[i].setAction("get");
 				}
@@ -116,7 +116,7 @@ public class Test1 {
 					System.out.println (u);
 				
 				//System.out.println (Arrays.toString(users3));
-			
+			*/
 				GradeRecord[] grs=moodle.get_course_grades(lr.getClient(), lr.getSessionkey(),"116","id");
 				System.out.println (Arrays.toString(grs));
 				
@@ -128,7 +128,7 @@ public class Test1 {
 				ForumDiscussionRecord[] frd=moodle.get_forum_discussions(lr.getClient(), lr.getSessionkey(),93,5);
 				System.out.println (Arrays.toString(frd));
 				
-				
+			
 				moodle.logout(lr.getClient(),lr.getSessionkey());
 				System.out.println ("bye");
 			} else
