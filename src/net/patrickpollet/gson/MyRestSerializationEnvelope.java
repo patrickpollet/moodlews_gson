@@ -2,6 +2,7 @@ package net.patrickpollet.gson;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.net.URLEncoder;
 
 import net.patrickpollet.moodlews_gson.core.LoginReturn;
@@ -78,11 +79,30 @@ public class MyRestSerializationEnvelope {
 				int length = Array.getLength(value);
 				for (int i = 0; i < length; ++i) {
 				      Object child = Array.get(value, i);
-				      this.addProperty(name+"["+i+"]", child);
+				      this.addProperty(name+'['+i+']', child);
 				}      
 			}
-			else {
-				//todo object 
+			else if (value instanceof GsonObject) { // my objects
+				Field[] fields=value.getClass().getDeclaredFields();
+				for (Field field :fields){
+					try {
+						field.setAccessible(true); //MUST DO 
+						Object fieldValue=field.get(value);
+						String fieldName=field.getName();
+						if (fieldValue !=null) { 
+							this.addProperty(name+'['+fieldName+']', fieldValue);
+						}
+						
+					} catch (IllegalArgumentException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}	
+			}
+			else { // Java type or primitive 
 				this.request.append("&");
 				this.request.append(URLEncoder.encode(name, this.encoding)).append("=").append(URLEncoder.encode(value.toString(),this.encoding));
 			}
