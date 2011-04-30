@@ -99,16 +99,6 @@ public class GsonUtils {
 	}
 	
 
-	/*
-	public static String getPrimitiveTypeFetchValue(String typeName) {
-		int i = findPrimitiveTypeIndex(typeName);
-		if (i != -1)
-			return PRIMITIVE_FETCH_VALUES[i];
-		else
-			return "";
-	}
-	*/
-
 	public static String getPrimitiveTypeReturnValue(String typeName,
 			boolean fault) {
 		int i = findPrimitiveTypeIndex(typeName);
