@@ -9,7 +9,7 @@ See classes Test1.java in net.patrickpollet.moodlews_gson
 2) Running the test classes against your Moodle server :
 -------------------------------------------------------
 The tests classes require the URL of a Moodle server and a login/password for an user with sufficient capabilities.
-These data are expected to be in a file named net.patrickpollet.moodlews.Constantes.java
+These data are expected to be in a file named net.patrickpollet.moodlews_gson.Constantes.java
 
 - rename the provided file Constantes.java.dist to Constantes.java
 - edit it to provide the actual informations  
@@ -88,6 +88,8 @@ you should type
 
 
 java -cp '.:../lib/*' net.patrickpollet.gson.wsdl.WSDL2gson -p net.patrickpollet.moodlews_gson.core -o /tmp http://yourmoodle/wspp/wsdl_pp2.php
+
+them make a jar file inside the bin directory and copy it to your actual projet.
 
 
 enjoy
