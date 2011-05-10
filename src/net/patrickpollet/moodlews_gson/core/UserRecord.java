@@ -73,7 +73,7 @@ public class UserRecord  extends GsonObject {
 
     private java.lang.String theme;
 
-    private int timezone;
+    private java.lang.String timezone;
 
     private java.lang.String username;
 
@@ -665,7 +665,7 @@ public class UserRecord  extends GsonObject {
      * 
      * @return timezone
      */
-    public int getTimezone() {
+    public java.lang.String getTimezone() {
         return timezone;
     }
 
@@ -675,7 +675,7 @@ public class UserRecord  extends GsonObject {
      * 
      * @param timezone
      */
-    public void setTimezone(int timezone) {
+    public void setTimezone(java.lang.String timezone) {
         this.timezone = timezone;
     }
 

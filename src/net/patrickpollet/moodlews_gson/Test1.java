@@ -77,7 +77,7 @@ public class Test1 {
 					.getSessionkey(), "ppollet", "username");
 			System.out.println(Arrays.toString(users));
 
-			String[] userids = { "ppollet", "pguy", "astrid", "inconnu" };
+			String[] userids = { "ppollet", "pguy", "astrid","inconnu"};
 			UserRecord[] thems = moodle.get_users(lr.getClient(), lr
 					.getSessionkey(), userids, "username");
 			System.out.println(Arrays.toString(thems));

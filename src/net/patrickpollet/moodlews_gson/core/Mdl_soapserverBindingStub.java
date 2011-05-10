@@ -559,7 +559,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.EnrolRecord[] affect_users_to_group(int client, java.lang.String sesskey, java.lang.String[] userids, java.lang.String useridfield, java.lang.String cohortid, java.lang.String cohortidfield)  {
+    public net.patrickpollet.moodlews_gson.core.EnrolRecord[] affect_users_to_group(int client, java.lang.String sesskey, java.lang.String[] userids, java.lang.String useridfield, java.lang.String groupid, java.lang.String groupidfield)  {
     final String METH_NAME = "affect_users_to_group";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
@@ -569,8 +569,8 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
      //TODO generate an arraytype  for input array 
      envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
-      envelope.addProperty("cohortid",cohortid);
-      envelope.addProperty("cohortidfield",cohortidfield);
+      envelope.addProperty("groupid",groupid);
+      envelope.addProperty("groupidfield",groupidfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<EnrolRecord>>(){}.getType();
@@ -1002,14 +1002,14 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.ForumPostRecord[] forum_add_reply(int client, java.lang.String sesskey, int parenttid, net.patrickpollet.moodlews_gson.core.ForumPostDatum post)  {
+    public net.patrickpollet.moodlews_gson.core.ForumPostRecord[] forum_add_reply(int client, java.lang.String sesskey, int parentid, net.patrickpollet.moodlews_gson.core.ForumPostDatum post)  {
     final String METH_NAME = "forum_add_reply";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
 	MyRestSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
-      envelope.addProperty("parenttid",parenttid);
+      envelope.addProperty("parentid",parentid);
       envelope.addProperty("post",post);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -1342,14 +1342,14 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.CohortRecord[] get_cohort_byidnumber(int client, java.lang.String sesskey, java.lang.String cohortIdNumber)  {
+    public net.patrickpollet.moodlews_gson.core.CohortRecord[] get_cohort_byidnumber(int client, java.lang.String sesskey, java.lang.String cohortidnumber)  {
     final String METH_NAME = "get_cohort_byidnumber";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
 	MyRestSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
-      envelope.addProperty("cohortIdNumber",cohortIdNumber);
+      envelope.addProperty("cohortidnumber",cohortidnumber);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<CohortRecord>>(){}.getType();
@@ -1379,14 +1379,14 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.CohortRecord[] get_cohorts_byname(int client, java.lang.String sesskey, java.lang.String cohortName)  {
+    public net.patrickpollet.moodlews_gson.core.CohortRecord[] get_cohorts_byname(int client, java.lang.String sesskey, java.lang.String cohortname)  {
     final String METH_NAME = "get_cohorts_byname";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
 	MyRestSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
-      envelope.addProperty("cohortName",cohortName);
+      envelope.addProperty("cohortname",cohortname);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<CohortRecord>>(){}.getType();
@@ -1527,7 +1527,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.EventRecord[] get_events(int client, java.lang.String sesskey, int eventtype, java.lang.String ownerid, java.lang.String owneridfield)  {
+    public net.patrickpollet.moodlews_gson.core.EventRecord[] get_events(int client, java.lang.String sesskey, int eventtype, java.lang.String ownerid, java.lang.String owneridfield, int datetimefrom)  {
     final String METH_NAME = "get_events";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
@@ -1537,6 +1537,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("eventtype",eventtype);
       envelope.addProperty("ownerid",ownerid);
       envelope.addProperty("owneridfield",owneridfield);
+      envelope.addProperty("datetimefrom",datetimefrom);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<EventRecord>>(){}.getType();
@@ -1806,7 +1807,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.ChangeRecord[] get_last_changes(int client, java.lang.String sesskey, java.lang.String courseid, java.lang.String courseidfield, int limit)  {
+    public net.patrickpollet.moodlews_gson.core.ChangeRecord[] get_last_changes(int client, java.lang.String sesskey, java.lang.String courseid, java.lang.String idfield, int limit)  {
     final String METH_NAME = "get_last_changes";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
@@ -1814,7 +1815,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("client",client);
       envelope.addProperty("sesskey",sesskey);
       envelope.addProperty("courseid",courseid);
-      envelope.addProperty("courseidfield",courseidfield);
+      envelope.addProperty("idfield",idfield);
       envelope.addProperty("limit",limit);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
@@ -2403,7 +2404,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.UserRecord[] get_users_bycourse(int client, java.lang.String sesskey, java.lang.String idcourse, java.lang.String idfield, int roleid)  {
+    public net.patrickpollet.moodlews_gson.core.UserRecord[] get_users_bycourse(int client, java.lang.String sesskey, java.lang.String idcourse, java.lang.String idfield, int idrole)  {
     final String METH_NAME = "get_users_bycourse";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
@@ -2412,7 +2413,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
       envelope.addProperty("sesskey",sesskey);
       envelope.addProperty("idcourse",idcourse);
       envelope.addProperty("idfield",idfield);
-      envelope.addProperty("roleid",roleid);
+      envelope.addProperty("idrole",idrole);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<UserRecord>>(){}.getType();
@@ -2440,6 +2441,21 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
     } catch (Exception e) {
              this.logError(httpTransport, e);
            return null;
+        }
+   }
+    public int get_version(int client, java.lang.String sesskey)  {
+    final String METH_NAME = "get_version";
+    MyHttpTransportSE httpTransport = this.makeHttpTransport();
+     try {
+	MyRestSerializationEnvelope envelope = this.makeEnvelope(METH_NAME);
+      envelope.addProperty("client",client);
+      envelope.addProperty("sesskey",sesskey);
+       String response=httpTransport.call(METH_NAME, envelope);
+	  this.logInfo(METH_NAME, response);
+      return Integer.valueOf(response);
+    } catch (Exception e) {
+             this.logError(httpTransport, e);
+           return 0;
         }
    }
     public boolean has_role_incourse(int client, java.lang.String sesskey, java.lang.String userid, java.lang.String useridfield, java.lang.String courseid, java.lang.String courseidfield, int roleid)  {
@@ -2658,7 +2674,7 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
            return null;
         }
    }
-    public net.patrickpollet.moodlews_gson.core.EnrolRecord[] remove_users_from_group(int client, java.lang.String sesskey, java.lang.String[] userids, java.lang.String useridfield, java.lang.String cohortid, java.lang.String cohortidfield)  {
+    public net.patrickpollet.moodlews_gson.core.EnrolRecord[] remove_users_from_group(int client, java.lang.String sesskey, java.lang.String[] userids, java.lang.String useridfield, java.lang.String groupid, java.lang.String groupidfield)  {
     final String METH_NAME = "remove_users_from_group";
     MyHttpTransportSE httpTransport = this.makeHttpTransport();
      try {
@@ -2668,8 +2684,8 @@ public class Mdl_soapserverBindingStub extends  GsonBindingStubBase{
      //TODO generate an arraytype  for input array 
      envelope.addProperty("userids",userids);
       envelope.addProperty("useridfield",useridfield);
-      envelope.addProperty("cohortid",cohortid);
-      envelope.addProperty("cohortidfield",cohortidfield);
+      envelope.addProperty("groupid",groupid);
+      envelope.addProperty("groupidfield",groupidfield);
        String response=httpTransport.call(METH_NAME, envelope);
 	  this.logInfo(METH_NAME, response);
       Type  collectionType = new TypeToken<Collection<EnrolRecord>>(){}.getType();
