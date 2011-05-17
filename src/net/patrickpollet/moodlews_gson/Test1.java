@@ -151,8 +151,8 @@ public class Test1 {
 			AffectRecord ar=moodle.message_send(lr.getClient(), lr
 					.getSessionkey(),"ppollet","username","salut de moodlews_gson");
 			System.out.println ("resultat message"+ar);
-			moodle.logout(lr.getClient(), lr.getSessionkey());
-			System.out.println("bye");
+			boolean b=moodle.logout(lr.getClient(), lr.getSessionkey());
+			System.out.println(b+" bye");
 		} else
 			System.out.println("echec");
 

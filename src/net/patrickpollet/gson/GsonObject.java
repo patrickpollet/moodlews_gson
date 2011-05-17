@@ -31,6 +31,7 @@ public class GsonObject {
 		GsonBuilder gsonb=new GsonBuilder();
 		//added for real booelan returned by some WS 
 		gsonb.registerTypeAdapter(Boolean.class, new JsonBooleanDeserializer());
+		//gsonb.registerTypeAdapter(boolean.class, new JsonBooleanDeserializer());
 		Gson gson=gsonb.create();
 		return gson.fromJson(jString,this.getClass());
 	}

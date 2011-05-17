@@ -75,9 +75,14 @@ public class Test3 {
 			
 			boolean[] ret3=moodle.get_boolean_array();
 			System.out.println(Arrays.toString(ret3));
+			LoginReturn lr = moodle.login(Constantes.LOGIN, Constantes.PWD);
+	
+			AffectRecord ar=moodle.message_send(lr.getClient(), lr
+					.getSessionkey(),"ppollet","username","salut de moodlews_gson");
+			System.out.println ("resultat message"+ar);
+			boolean b=moodle.logout(lr.getClient(), lr.getSessionkey());
+			System.out.println(b+" bye");
 
-
-			System.out.println ("bye");
 		
 	}
 

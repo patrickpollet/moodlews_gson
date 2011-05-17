@@ -23,6 +23,10 @@ public class ResourceRecord  extends GsonObject {
 
     private java.lang.String error;
 
+    private int groupingid;
+
+    private int groupmembersonly;
+
     private int groupmode;
 
     private int id;
@@ -127,6 +131,46 @@ public class ResourceRecord  extends GsonObject {
      */
     public void setError(java.lang.String error) {
         this.error = error;
+    }
+
+
+    /**
+     * Gets the groupingid value for this ResourceRecord.
+     * 
+     * @return groupingid
+     */
+    public int getGroupingid() {
+        return groupingid;
+    }
+
+
+    /**
+     * Sets the groupingid value for this ResourceRecord.
+     * 
+     * @param groupingid
+     */
+    public void setGroupingid(int groupingid) {
+        this.groupingid = groupingid;
+    }
+
+
+    /**
+     * Gets the groupmembersonly value for this ResourceRecord.
+     * 
+     * @return groupmembersonly
+     */
+    public int getGroupmembersonly() {
+        return groupmembersonly;
+    }
+
+
+    /**
+     * Sets the groupmembersonly value for this ResourceRecord.
+     * 
+     * @param groupmembersonly
+     */
+    public void setGroupmembersonly(int groupmembersonly) {
+        this.groupmembersonly = groupmembersonly;
     }
 
 
