@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/gson-1.7.1.jar"/>
 	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/jaxrpc.jar"/>
 	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/axis.jar"/>
 	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/commons-logging-1.0.4.jar"/>
 	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/commons-discovery-0.2.jar"/>
 	<classpathentry kind="lib" path="/home/ppollet/workspace/moodlews_gson/lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
