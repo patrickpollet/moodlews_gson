@@ -7,7 +7,7 @@ Copy the dist/moodlews_gson_x.x.x.jar in the classpath of your project and call 
 See classes Test1.java in net.patrickpollet.moodlews_gson 
 
 Get the latest gson-xxxx.jar from Google site http://code.google.com/p/google-gson/ and add it to the classpath of your project.
-All testings were done with gson-1.1.7.jar, that is also provided for your convenience in the lib/ directory. 
+All testings were done with gson-1.7.1.jar and latest gson-2.2.1.jar , that are also provided for your convenience in the lib/ directory. 
 
 2) Running the test classes against your Moodle server :
 -------------------------------------------------------
