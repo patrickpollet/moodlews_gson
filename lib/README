@@ -1,3 +1,7 @@
 This directory contains jar files needed by WSDL2Java utility to regenerate helper classes 
 in case of evolution of the OK Tech WS WSDL 
 
+It contains also the required gson-xxx.jar file used when building this project. I do hope that
+the latest from http://code.google.com/p/google-gson/ does not break things... 
+
+
